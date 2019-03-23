@@ -10,7 +10,7 @@
       </span>
       <span class="tab-item" @click="tabPath('/search')">
         <img :src="'/search' === $route.path ? tarBarImgs[2].selected : this.tarBarImgs[2].normal" alt="">
-        <span :class="{textColor: '/search' === $route.path}">搜索</span>s
+        <span :class="{textColor: '/search' === $route.path}">搜索</span>
       </span>
       <span class="tab-item" @click="tabPath('/chat')">
         <img :src="'/chat' === $route.path ? tarBarImgs[3].selected : this.tarBarImgs[3].normal" alt="">
