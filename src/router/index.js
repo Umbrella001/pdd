@@ -8,6 +8,16 @@ import Recommend from '../pages/Recommend/Recommend'
 import Search from '../pages/Search/Search'
 import Chat from '../pages/Chat/Chat'
 import Me from '../pages/Me/Me'
+// 导入二级路由(Home页面中的头部导航区)
+import Hot from 'pages/Home/children/Hot'
+import Dress from 'pages/Home/children/Dress'
+import Shoe from 'pages/Home/children/Shoe'
+import Mbaby from 'pages/Home/children/Mbaby'
+import Goods from 'pages/Home/children/Goods'
+import Food from 'pages/Home/children/Food'
+import Shirt from 'pages/Home/children/Shirt'
+import Man from 'pages/Home/children/Man'
+import Fitment from 'pages/Home/children/Fitment'
 // 声明使用
 Vue.use(VueRouter);
 
@@ -22,7 +32,20 @@ export default new VueRouter({
       },
       {
         path:'/home',
-        component:Home
+        component:Home,
+        // Home下的二级路由children
+        children:[
+          {path:'/home',redirect: '/home/hot'},
+          {path:'hot',component:Hot},
+          {path:'dress',component:Dress},
+          {path:'shoe',component:Shoe},
+          {path:'mbaby',component:Mbaby},
+          {path:'goods',component:Goods},
+          {path:'food',component:Food},
+          {path:'shirt',component:Shirt},
+          {path:'man',component:Man},
+          {path:'fitment',component:Fitment}
+        ]
       },
       {
         path:'/recommend',
