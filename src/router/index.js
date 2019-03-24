@@ -9,7 +9,7 @@ import Search from '../pages/Search/Search'
 import Chat from '../pages/Chat/Chat'
 import Me from '../pages/Me/Me'
 // 导入二级路由(Home页面中的头部导航区)
-import Hot from 'pages/Home/children/Hot'
+import Hot from 'pages/Home/children/Hot/Hot'
 import Dress from 'pages/Home/children/Dress'
 import Shoe from 'pages/Home/children/Shoe'
 import Mbaby from 'pages/Home/children/Mbaby'
@@ -35,6 +35,7 @@ export default new VueRouter({
         component:Home,
         // Home下的二级路由children
         children:[
+          // 默认进来的界面 热门板块
           {path:'/home',redirect: '/home/hot'},
           {path:'hot',component:Hot},
           {path:'dress',component:Dress},
