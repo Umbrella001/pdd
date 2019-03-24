@@ -18,6 +18,12 @@
       </div>
        <!-- Icon图标 -->
       <hot-nav></hot-nav>
+      <!-- 广告位 -->
+      <div class="hot-ad">
+        <img src="./../../imgs/hot_ad/home_ad.gif" alt="">
+      </div>
+      <!-- 商品列表区 -->
+      <hot-shop-list></hot-shop-list>
     </div>
 </template>
 
@@ -25,10 +31,12 @@
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import HotNav from './HotNav'
+import HotShopList from './HotShopList'
     export default {
       name: "Hot",
       components:{
-        HotNav
+        HotNav,
+        HotShopList
       },
       mounted(){
         new Swiper ('.swiper-container', {
@@ -54,4 +62,8 @@ import HotNav from './HotNav'
   padding-top 48px
   img
     width 100%
+  .hot-ad
+    background-color #fff
+    margin 6px 0
+    padding 4px
 </style>

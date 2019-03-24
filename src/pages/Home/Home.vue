@@ -50,7 +50,8 @@
   background-color: #f5f5f5
   .navFix
     position fixed
+    z-index 98
     top 0
     left 0
-    z-index 98
+    background-color rgba(255,255,255,.8)
 </style>
