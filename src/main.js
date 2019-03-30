@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import store from './store/index'
 
 // 引入路由器
 import router from './router/index'
@@ -11,6 +12,7 @@ Vue.use(LyTab);
 new Vue({
   el:'#app',
   router,
+  store,
   // 渲染根组件
   render : h => h(App)
 });

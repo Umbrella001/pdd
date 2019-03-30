@@ -1,42 +1,12 @@
 <template>
-  <div class="shop-container">
+  <div class="shop-container" v-if="homeshoplist.length > 0">
     <ul class="shop-list">
-      <li class="shop-list-item">
-        <img src="./../../imgs/shop_list/shop_item.png" alt="" width='100%'>
-      <h4 class="shop-des">【夏末清仓】职场休闲女装直筒裤 中长款秋冬新款韩版修身显瘦高腰裤女</h4>
+      <li class="shop-list-item" v-for="(shop, index) in homeshoplist" :key="index">
+        <img :src="shop.image_url" alt="" width='100%'>
+      <h4 class="shop-des">{{shop.goods_name}}</h4>
         <div class="shop-item-bottom">
-          <span class="shop-price">￥39.9</span>
-          <span class="shop-counter">已拼35692件</span>
-          <span class="shop-users">
-            <img src="./../../imgs/shop_list/user1.jpg" alt="">
-            <img src="./../../imgs/shop_list/user2.jpg" alt="">
-          </span>
-          <span class="shop-btn">
-            <button>去拼单 <img src="./../../imgs/shop_list/go1.png" alt=""></button>
-          </span>
-        </div>
-      </li>
-      <li class="shop-list-item">
-        <img src="./../../imgs/shop_list/shop_item.png" alt="" width='100%'>
-        <h4 class="shop-des">【夏末清仓】职场休闲女装直筒裤 中长款秋冬新款韩版修身显瘦高腰裤女</h4>
-        <div class="shop-item-bottom">
-          <span class="shop-price">￥39.9</span>
-          <span class="shop-counter">已拼35692件</span>
-          <span class="shop-users">
-            <img src="./../../imgs/shop_list/user1.jpg" alt="">
-            <img src="./../../imgs/shop_list/user2.jpg" alt="">
-          </span>
-          <span class="shop-btn">
-            <button>去拼单 <img src="./../../imgs/shop_list/go1.png" alt=""></button>
-          </span>
-        </div>
-      </li>
-      <li class="shop-list-item">
-        <img src="./../../imgs/shop_list/shop_item.png" alt="" width='100%'>
-        <h4 class="shop-des">【夏末清仓】职场休闲女装直筒裤 中长款秋冬新款韩版修身显瘦高腰裤女</h4>
-        <div class="shop-item-bottom">
-          <span class="shop-price">￥39.9</span>
-          <span class="shop-counter">已拼35692件</span>
+          <span class="shop-price">￥{{shop.normal_price / 100}}</span>
+          <span class="shop-counter">{{shop.sales_tip}}</span>
           <span class="shop-users">
             <img src="./../../imgs/shop_list/user1.jpg" alt="">
             <img src="./../../imgs/shop_list/user2.jpg" alt="">
@@ -51,8 +21,14 @@
 </template>
 
 <script>
+  import {
+    mapState
+  } from 'vuex'
     export default {
-        name: "HotShopList"
+        name: "HotShopList",
+      computed:{
+        ...mapState(['homeshoplist'])
+      }
     }
 </script>
 

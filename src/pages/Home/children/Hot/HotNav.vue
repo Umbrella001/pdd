@@ -1,71 +1,11 @@
 <template>
   <div class="hot-nav">
-    <div class="hot-nav-content">
-      <!-- 滚动区域 -->
+    <!-- 滚动区域 -->
+    <div class="hot-nav-content" v-if="homenav.length > 0">
       <div class="nav-content-inner">
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../imgs/nav/nav_icon01.png" alt="">
-          <span>限时秒杀</span>
+        <a class="inner-item" v-for="(nav,index) in homenav" :key="index">
+          <img :src="nav.iconurl" alt="">
+          <span>{{nav.icontitle}}</span>
         </a>
       </div>
       <!-- 自定义滚动条 -->
@@ -77,6 +17,9 @@
 </template>
 
 <script>
+  import {
+    mapState
+  } from 'vuex'
     export default {
       name: "HotNav",
       data(){
@@ -101,25 +44,25 @@
       },
       // 页面实例挂载完毕后激活这些函数
       mounted() {
-        // 获取动态滚动条的长度
+        // 5.获取动态滚动条的长度
         this.bottomInnerWidth();
-        // 移动端事件监听
+        // 6.移动端事件监听
         this.bindEvent();
       },
       methods:{
-        // 分析: 动态滚动条滚动的长度/固定好的静态长度 == 手机屏幕中该页面显示的宽/滚动内容的总宽
+        // 7.分析: 动态滚动条滚动的长度/固定好的静态长度 == 手机屏幕中该页面显示的宽/滚动内容的总宽
         bottomInnerWidth(){
           const {scrollContentWidth,scrollWidth,screenWidth} = this;
           this.scrollInnerWidth = scrollWidth * (screenWidth / scrollContentWidth)
         },
-        // 在实例挂载之后，元素可以用 vm.$el 访问内部的函数（此处为监听函数addEventListener）,注意第一个参数type分别是移动端三个事件touchstart,touchmove,touchend，不能乱写否则报错(不是单纯的字符串)
+        // 8.在实例挂载之后，元素可以用 vm.$el 访问内部的函数（此处为监听函数addEventListener）,注意第一个参数type分别是移动端三个事件touchstart,touchmove,touchend，不能乱写否则报错(不是单纯的字符串)
         bindEvent(){
           this.$el.addEventListener('touchstart',this.handleTouchStart,false);
           this.$el.addEventListener('touchmove',this.handleTouchMove,false);
           this.$el.addEventListener('touchend',this.handleTouchEnd,false);
 
         },
-        // 开始触摸
+        // 9.开始触摸
         handleTouchStart(event){
           // console.log(event.touches);
           this.startX = event.touches[0].pageX;
@@ -145,6 +88,8 @@
         }
       },
       computed:{
+        // 2.使用延展操作符获取state中的数据
+        ...mapState(['homenav']),
         // 动态的计算宽度使用computed函数，在页面中可知：style接受的是一个键值对（如style='width:50px,height:50px'）
         getInnerWidth(){
           // 所以返回的值是一个键值对对象
