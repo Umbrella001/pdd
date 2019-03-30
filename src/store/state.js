@@ -7,4 +7,7 @@ export default {
 
   // 首页商品列表
   homeshoplist: [],
+
+  // 推荐商品列表
+  recommendshoplist: [],
 }

@@ -3,13 +3,12 @@
     <ul class="shop-list">
       <li class="shop-list-item" v-for="(shop, index) in homeshoplist" :key="index">
         <img :src="shop.image_url" alt="" width='100%'>
-      <h4 class="shop-des">{{shop.goods_name}}</h4>
+         <h4 class="shop-des">{{shop.goods_name}}</h4>
         <div class="shop-item-bottom">
           <span class="shop-price">￥{{shop.normal_price / 100}}</span>
           <span class="shop-counter">{{shop.sales_tip}}</span>
           <span class="shop-users">
-            <img src="./../../imgs/shop_list/user1.jpg" alt="">
-            <img src="./../../imgs/shop_list/user2.jpg" alt="">
+            <img :src="user.avatar" alt="" v-for="(user,index1) in shop.bubble" :key="index1">
           </span>
           <span class="shop-btn">
             <button>去拼单 <img src="./../../imgs/shop_list/go1.png" alt=""></button>
@@ -17,6 +16,7 @@
         </div>
       </li>
     </ul>
+    <p class="noContent">-------- 我也是有底线的 --------</p>
   </div>
 </template>
 
@@ -34,7 +34,7 @@
 
 <style scoped lang="stylus" ref="stylesheet/stylus">
 .shop-container
-  margin-bottom 20px
+  margin-bottom 50px
   background-color #f5f5f5
   .shop-list
    .shop-list-item
@@ -93,4 +93,10 @@
             position absolute
             top 10px
             right 12px
+  .noContent
+    font-size 14px
+    height 20px
+    line-height 16px
+    text-align center
+    color #cdcdcd
 </style>

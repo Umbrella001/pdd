@@ -71,16 +71,13 @@
 <style scoped lang="stylus" ref="stylesheet/stylus">
   .hot >>> .swiper-pagination-bullet-active
     background: #e9232c
-
   .hot
     width 100%
     height 100%
     background-color #f5f5f5
     padding-top 48px
-
     img
       width 100%
-
     .hot-ad
       background-color #fff
       margin 6px 0
