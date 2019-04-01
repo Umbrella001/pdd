@@ -3,7 +3,8 @@ import {
   HOME_CASUAL,
   HOME_NAV,
   HOME_SHOP_LIST,
-  RECOMMEND_SHOP_LIST
+  RECOMMEND_SHOP_LIST,
+  SEARCH_GOODS
 } from "./mutation-types";
 
 export default {
@@ -22,6 +23,10 @@ export default {
   },
   // 4.推荐商品列表同步到state
   [RECOMMEND_SHOP_LIST](state,{recommendshoplist}){
-    state.recommendshoplist = recommendshoplist;
+    state.recommendshoplist = state.recommendshoplist.concat(recommendshoplist)
+  },
+  // 5.搜索菜单及商品列表同步到state
+  [SEARCH_GOODS](state,{searchgoods}){
+    state.searchgoods = searchgoods;
   }
 }

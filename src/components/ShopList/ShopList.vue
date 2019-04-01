@@ -26,7 +26,8 @@
 <style lang="stylus" ref="stylesheet/stylus" scoped>
   .recommend-list-item
     width 49.5%
-    padding-bottom 14px
+    padding-bottom 15px
+    margin-bottom 15px
     background-color #fff
   .recommend-list-item:nth-child(2n-1)
     margin-right 1%

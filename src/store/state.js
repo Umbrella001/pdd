@@ -10,4 +10,7 @@ export default {
 
   // 推荐商品列表
   recommendshoplist: [],
+
+  // 搜索菜单及商品列表
+  searchgoods:[],
 }
