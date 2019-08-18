@@ -1,8 +1,8 @@
 {
-  "name": "um_pdd",
+  "name": "lk_pdd",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Umbrella <13798972826@163.com>",
+  "author": "yejianhua",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -12,12 +12,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.12.6",
-    "ly-tab": "^2.1.2",
+    "ly-tab": "^2.1.0",
     "mint-ui": "^2.2.13",
+    "moment": "^2.22.2",
     "swiper": "^4.3.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.1.0"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
